@@ -12,22 +12,27 @@ export class Panel {
         div.className = "panel"; //on lui attribue la classe panel active
         div.innerHTML = `<h3>${capitalizeTitle()}</h3>`;
 
-        function capitalizeTitle() {
-            const words = title.split(' '); //retourne un tableau
+        function capitalizeTitle() { 
+            // mon super titre
+            //const words = title.split(' '); // ["mon", "super", "titre"]
+            //let newTitle = "";
+            //words.forEach(w => { //mon (1er tour de boucle)
+            //    let first = w[0].charAt(0); //m
+            //    first = first.toUpperCase(); //M
+            //    const rest = w.slice(1); // mon ---> on
+            //    newTitle += first + rest + " "; // ---> Mon
+            //});
 
-            let newTitle = "";
-
-            words.forEach(w => {
-                let first = w[0].charAt(0);
-                first = first.toUpperCase();
-                console.log(first)
-                const rest = w.slice(1);
-                console.log(rest)
-                newTitle += first + rest + " ";
-                console.log(newTitle)
+            //Version simplifiée :
+            const words = title.split(' ');
+            
+            const result = words.forEach(w => { 
+                let first = w[0].charAt(0); 
+                first = first.toUpperCase(); 
+                const rest = w.slice(1); 
             });
 
-            return newTitle;
+            return title; // Mon Super Titre
         }
     }
 
