@@ -2,16 +2,15 @@ import {Panel} from './js/panel.js';
 
 
 const panels = [
-    new Panel("city-on-winter"),
-    new Panel("explore-the-world"),
-    new Panel("mountains-and-clouds"),
-    new Panel("sunny-beach"),
-    new Panel("wild-forest")
+    new Panel("city on winter"),
+    new Panel("explore the world"),
+    new Panel("mountains and clouds"),
+    new Panel("sunny beach"),
+    new Panel("wild forest")
 ];
 
-for (let panel of panels) {
-    panel.render();
-}
+Panel.render(panels) // Invoque render sur toutes les instances du tableau car c'est une méthode de classe.
+
 
 //for (let image of images) {
 //    const panel = createPanel(image);
