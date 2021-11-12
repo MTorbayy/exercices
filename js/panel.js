@@ -10,7 +10,25 @@ export class Panel {
         //div.style = "background-image: url(images/" + img + ".jpg)"; //On définit une image en fond d'écran pour cette constante
         div.style = "background-image: url(images/city-on-winter.jpg)";
         div.className = "panel"; //on lui attribue la classe panel active
-        div.innerHTML = "<h3>" + title + "</h3>";
+        div.innerHTML = `<h3>${capitalizeTitle()}</h3>`;
+
+        function capitalizeTitle() {
+            const words = title.split(' '); //retourne un tableau
+
+            let newTitle = "";
+
+            words.forEach(w => {
+                let first = w[0].charAt(0);
+                first = first.toUpperCase();
+                console.log(first)
+                const rest = w.slice(1);
+                console.log(rest)
+                newTitle += first + rest + " ";
+                console.log(newTitle)
+            });
+
+            return newTitle;
+        }
     }
 
     listenClickEvent() {
