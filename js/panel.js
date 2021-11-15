@@ -26,13 +26,14 @@ export class Panel {
             //Version simplifiée :
             const words = title.split(' ');
             
-            const result = words.forEach(w => { 
+            const result = words.map(w => { 
                 let first = w[0].charAt(0); 
                 first = first.toUpperCase(); 
-                const rest = w.slice(1); 
+                const rest = w.slice(1);
+                return first + rest + " "; 
             });
 
-            return title; // Mon Super Titre
+            return result.join(' '); // Mon Super Titre
         }
     }
 
