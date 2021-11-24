@@ -7,12 +7,16 @@ export class Panel {
     }
 
     initialize(div, title) {
-        //div.style = "background-image: url(images/" + img + ".jpg)"; //On définit une image en fond d'écran pour cette constante
-        div.style = "background-image: url(images/city-on-winter.jpg)";
+        div.style = `background-image: url(${getImagePath()})`;
         div.className = "panel"; //on lui attribue la classe panel active
         div.innerHTML = `<h3>${capitalizeTitle()}</h3>`;
 
         function capitalizeTitle() { 
+            return title
+            .split(' ')
+            .map(([first, ...rest]) => first.toUpperCase() + rest.join('').toLowerCase())
+            .join(' ');
+            
             // mon super titre
             //const words = title.split(' '); // ["mon", "super", "titre"]
             //let newTitle = "";
@@ -22,20 +26,11 @@ export class Panel {
             //    const rest = w.slice(1); // mon ---> on
             //    newTitle += first + rest + " "; // ---> Mon
             //});
-
-            //Version simplifiée :
-            const words = title.split(' ');
-            
-            const result = words.map(w => { 
-                let first = w[0].charAt(0); 
-                first = first.toUpperCase(); 
-                const rest = w.slice(1);
-                return first + rest + " "; 
-            });
-
-            return result.join(' '); // Mon Super Titre
-        }
     }
+    function getImagePath() {
+        return `./images/${title.replaceAll(' ', '-')}.jpg`;
+    }
+}
 
     listenClickEvent() {
         this.html.addEventListener("click", () => {

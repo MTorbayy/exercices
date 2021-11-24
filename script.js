@@ -9,13 +9,26 @@ const panels = [
     new Panel("wild forest")
 ];
 
-Panel.render(panels) // Invoque render sur toutes les instances du tableau car c'est une méthode de classe.
+buildPage();
+addEventListener('hashchange', buildPage);
+
+function buildPage() {
+    document.querySelector('.container').innerHTML = '';
+    switch (location.hash.substring(1)) { //Pour récupérer le #
+        case 'home' :
+            updateFooterLink("admin"); 
+            Panel.render(panels); // Invoque render sur toutes les instances du tableau car c'est une méthode de classe.
+            break;
+        case 'admin' :
+            updateFooterLink("home"); 
+            break;
+    } 
+
+    function updateFooterLink(route) {
+        const footerLink = document.querySelector('footer a');
+        footerLink.href = "#" + route;
+        footerLink.innerText = route;
+    }
+}
 
 
-//for (let image of images) {
-//    const panel = createPanel(image);
-//    panel.addEventListener('click', function() { 
-//        //panels.forEach(p => p.classList.remove("active")); 
-//        panel.classList.add("active"); 
-//    });
-//}

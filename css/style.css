@@ -10,6 +10,7 @@ body {
     color: #fff;
     font-family: 'Mulish', sans-serif;
     display: flex; /* pour activer les prop justify-content et align-items*/
+    flex-flow: column;
     height: 100vh;
     justify-content: center;
     align-items: center;
@@ -51,6 +52,13 @@ body {
 .panel.active h3 {
     opacity: 1;
     transition: opacity 0.3s ease-in-out 0.4s;
+}
+
+/*FOOTER*/
+
+footer {
+    margin-top: auto;
+    margin-bottom: 15px;
 }
 
 @media screen and (max-width: 480px) {
